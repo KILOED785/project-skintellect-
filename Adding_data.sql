@@ -1,0 +1,184 @@
+-- -- -- -- Sample Data Insertion for Customers
+-- -- -- INSERT INTO Customer (First_Name, Last_Name, age, Email_ID, Phone_Number)
+-- -- -- VALUES  
+-- -- -- ('John', 'Doe', 30, 'john.doe01@example.com', '555-123-4567'),
+-- -- -- ('Jane', 'Smith', 28, 'jane.smith02@example.com', '555-234-5678'),
+-- -- -- ('Alice', 'Johnson', 25, 'alice.johnson03@example.com', '555-345-6789'),
+-- -- -- ('Bob', 'Brown', 35, 'bob.brown04@example.com', '555-456-7890'),
+-- -- -- ('Charlie', 'Davis', 27, 'charlie.davis05@example.com', '555-567-8901'),
+-- -- -- ('Emily', 'Miller', 32, 'emily.miller06@example.com', '555-678-9012'),
+-- -- -- ('Frank', 'Wilson', 45, 'frank.wilson07@example.com', '555-789-0123'),
+-- -- -- ('Grace', 'Taylor', 33, 'grace.taylor08@example.com', '555-890-1234'),
+-- -- -- ('Henry', 'Moore', 29, 'henry.moore09@example.com', '555-901-2345'),
+-- -- -- ('Ivy', 'Clark', 26, 'ivy.clark10@example.com', '555-012-3456'),
+-- -- -- ('Jack', 'Evans', 24, 'jack.evans11@example.com', '555-123-4560'),
+-- -- -- ('Katie', 'Walker', 34, 'katie.walker12@example.com', '555-234-5670'),
+-- -- -- ('Leo', 'Allen', 40, 'leo.allen13@example.com', '555-345-6780'),
+-- -- -- ('Mia', 'King', 38, 'mia.king14@example.com', '555-456-7891'),
+-- -- -- ('Nina', 'Scott', 31, 'nina.scott15@example.com', '555-567-8902'),
+-- -- -- ('Owen', 'Baker', 36, 'owen.baker16@example.com', '555-678-9013'),
+-- -- -- ('Paul', 'Adams', 50, 'paul.adams17@example.com', '555-789-0124'),
+-- -- -- ('Quinn', 'Nelson', 39, 'quinn.nelson18@example.com', '555-890-1235'),
+-- -- -- ('Rachel', 'Perry', 28, 'rachel.perry19@example.com', '555-901-2346'),
+-- -- -- ('Sam', 'Cox', 22, 'sam.cox20@example.com', '555-012-3457'),
+-- -- -- ('Tina', 'Ward', 26, 'tina.ward21@example.com', '555-123-4561'),
+-- -- -- ('Uma', 'Jenkins', 43, 'uma.jenkins22@example.com', '555-234-5671'),
+-- -- -- ('Vince', 'Reed', 29, 'vince.reed23@example.com', '555-345-6781'),
+-- -- -- ('Wendy', 'Morgan', 33, 'wendy.morgan24@example.com', '555-456-7892'),
+-- -- -- ('Xander', 'Bell', 37, 'xander.bell25@example.com', '555-567-8903'),
+-- -- -- ('Yara', 'Patterson', 41, 'yara.patterson26@example.com', '555-678-9014'),
+-- -- -- ('Zach', 'Hayes', 30, 'zach.hayes27@example.com', '555-789-0125'),
+-- -- -- ('Amelia', 'Brooks', 35, 'amelia.brooks28@example.com', '555-890-1236'),
+-- -- -- ('Brandon', 'Wright', 42, 'brandon.wright29@example.com', '555-901-2347'),
+-- -- -- ('Clara', 'Bennett', 23, 'clara.bennett30@example.com', '555-012-3458'),
+-- -- -- ('David', 'Sullivan', 32, 'david.sullivan31@example.com', '555-123-4562'),
+-- -- -- ('Eva', 'Hughes', 38, 'eva.hughes32@example.com', '555-234-5672'),
+-- -- -- ('Felix', 'Price', 29, 'felix.price33@example.com', '555-345-6782'),
+-- -- -- ('Georgia', 'Howard', 44, 'georgia.howard34@example.com', '555-456-7893'),
+-- -- -- ('Harvey', 'Murphy', 27, 'harvey.murphy35@example.com', '555-567-8904'),
+-- -- -- ('Isla', 'Henderson', 31, 'isla.henderson36@example.com', '555-678-9015'),
+-- -- -- ('James', 'Rogers', 34, 'james.rogers37@example.com', '555-789-0126'),
+-- -- -- ('Kara', 'Cooper', 28, 'kara.cooper38@example.com', '555-890-1237'),
+-- -- -- ('Liam', 'Ward', 40, 'liam.ward39@example.com', '555-901-2348'),
+-- -- -- ('Mila', 'Peterson', 26, 'mila.peterson40@example.com', '555-012-3459'),
+-- -- -- ('Noah', 'Parker', 36, 'noah.parker41@example.com', '555-123-4563'),
+-- -- -- ('Olivia', 'Gray', 33, 'olivia.gray42@example.com', '555-234-5673'),
+-- -- -- ('Peter', 'Russell', 45, 'peter.russell43@example.com', '555-345-6783'),
+-- -- -- ('Quincy', 'Hamilton', 30, 'quincy.hamilton44@example.com', '555-456-7894'),
+-- -- -- ('Riley', 'Powell', 38, 'riley.powell45@example.com', '555-567-8905'),
+-- -- -- ('Sophia', 'Mason', 25, 'sophia.mason46@example.com', '555-678-9016'),
+-- -- -- ('Thomas', 'Foster', 42, 'thomas.foster47@example.com', '555-789-0127'),
+-- -- -- ('Ulysses', 'Griffin', 39, 'ulysses.griffin48@example.com', '555-890-1238'),
+-- -- -- ('Victoria', 'Butler', 37, 'victoria.butler49@example.com', '555-901-2349');
+
+
+
+-- -- -- Sample Data Insertion for Carts
+-- -- -- Each cart is linked to a customer using the Customer_ID foreign key
+-- -- INSERT INTO Cart (Cart_ID, Customer_ID, Total_Amount, Payment_Method, Shipping_Address, Pincode)
+-- -- VALUES
+-- -- (1, 1, 120.50, 'Credit Card', '123 Elm Street, City A', '123456'),
+-- -- (2, 2, 210.75, 'Debit Card', '456 Oak Avenue, City B', '234567'),
+-- -- (3, 3, 89.99, 'PayPal', '789 Pine Road, City C', '345678'),
+-- -- (4, 4, 130.50, 'Credit Card', '321 Cedar Lane, City D', '456789'),
+-- -- (5, 5, 54.00, 'Credit Card', '654 Birch Street, City E', '567890'),
+-- -- (6, 6, 200.25, 'PayPal', '987 Maple Avenue, City F', '678901'),
+-- -- (7, 7, 175.80, 'Debit Card', '543 Aspen Road, City G', '789012'),
+-- -- (8, 8, 65.99, 'Credit Card', '876 Willow Lane, City H', '890123'),
+-- -- (9, 9, 220.00, 'Debit Card', '345 Palm Street, City I', '901234'),
+-- -- (10, 10, 90.50, 'Credit Card', '678 Poplar Avenue, City J', '012345'),
+-- -- (11, 11, 45.75, 'PayPal', '123 Elm Street, City A', '123456'),
+-- -- (12, 12, 130.99, 'Credit Card', '456 Oak Avenue, City B', '234567'),
+-- -- (13, 13, 175.25, 'Debit Card', '789 Pine Road, City C', '345678'),
+-- -- (14, 14, 220.00, 'Credit Card', '321 Cedar Lane, City D', '456789'),
+-- -- (15, 15, 98.99, 'PayPal', '654 Birch Street, City E', '567890'),
+-- -- (16, 16, 59.25, 'Debit Card', '987 Maple Avenue, City F', '678901'),
+-- -- (17, 17, 110.75, 'Credit Card', '543 Aspen Road, City G', '789012'),
+-- -- (18, 18, 145.99, 'PayPal', '876 Willow Lane, City H', '890123'),
+-- -- (19, 19, 67.50, 'Credit Card', '345 Palm Street, City I', '901234'),
+-- -- (20, 20, 99.99, 'Debit Card', '678 Poplar Avenue, City J', '012345'),
+-- -- (21, 21, 120.00, 'PayPal', '123 Elm Street, City A', '123456'),
+-- -- (22, 22, 185.75, 'Credit Card', '456 Oak Avenue, City B', '234567'),
+-- -- (23, 23, 240.50, 'Debit Card', '789 Pine Road, City C', '345678'),
+-- -- (24, 24, 78.99, 'Credit Card', '321 Cedar Lane, City D', '456789'),
+-- -- (25, 25, 112.30, 'PayPal', '654 Birch Street, City E', '567890'),
+-- -- (26, 26, 205.00, 'Debit Card', '987 Maple Avenue, City F', '678901'),
+-- -- (27, 27, 145.25, 'Credit Card', '543 Aspen Road, City G', '789012'),
+-- -- (28, 28, 165.99, 'PayPal', '876 Willow Lane, City H', '890123'),
+-- -- (29, 29, 130.75, 'Debit Card', '345 Palm Street, City I', '901234'),
+-- -- (30, 30, 50.50, 'Credit Card', '678 Poplar Avenue, City J', '012345'),
+-- -- (31, 31, 275.40, 'PayPal', '123 Elm Street, City A', '123456'),
+-- -- (32, 32, 180.99, 'Credit Card', '456 Oak Avenue, City B', '234567'),
+-- -- (33, 33, 90.75, 'Debit Card', '789 Pine Road, City C', '345678'),
+-- -- (34, 34, 125.50, 'Credit Card', '321 Cedar Lane, City D', '456789'),
+-- -- (35, 35, 210.99, 'PayPal', '654 Birch Street, City E', '567890'),
+-- -- (36, 36, 150.00, 'Debit Card', '987 Maple Avenue, City F', '678901'),
+-- -- (37, 37, 175.75, 'Credit Card', '543 Aspen Road, City G', '789012'),
+-- -- (38, 38, 95.99, 'PayPal', '876 Willow Lane, City H', '890123'),
+-- -- (39, 39, 220.25, 'Debit Card', '345 Palm Street, City I', '901234'),
+-- -- (40, 40, 155.00, 'Credit Card', '678 Poplar Avenue, City J', '012345'),
+-- -- (41, 41, 190.75, 'PayPal', '123 Elm Street, City A', '123456'),
+-- -- (42, 42, 145.50, 'Credit Card', '456 Oak Avenue, City B', '234567'),
+-- -- (43, 43, 270.00, 'Debit Card', '789 Pine Road, City C', '345678'),
+-- -- (44, 44, 120.50, 'Credit Card', '321 Cedar Lane, City D', '456789'),
+-- -- (45, 45, 160.99, 'PayPal', '654 Birch Street, City E', '567890'),
+-- -- (46, 46, 98.25, 'Debit Card', '987 Maple Avenue, City F', '678901'),
+-- -- (47, 47, 210.75, 'Credit Card', '543 Aspen Road, City G', '789012'),
+-- -- (48, 48, 140.50, 'PayPal', '876 Willow Lane, City H', '890123'),
+-- -- (49, 49, 180.99, 'Debit Card', '345 Palm Street, City I', '901234'),
+-- -- (50, 50, 215.25, 'Credit Card', '678 Poplar Avenue, City J', '012345');
+
+
+-- INSERT INTO Cart_Items (Cart_ID, Product_ID, Selected_Colours, Quantity, Subtotal) VALUES
+-- (1, 1, 'Red', 2, 40.00),        -- Cart ID 1, Product ID 1
+-- (1, 2, 'Blue', 1, 20.00),       -- Cart ID 1, Product ID 2
+-- (2, 3, 'Green', 3, 60.00),      -- Cart ID 2, Product ID 3
+-- (2, 4, 'Black', 1, 30.00),      -- Cart ID 2, Product ID 4
+-- (3, 5, 'Pink', 2, 50.00),       -- Cart ID 3, Product ID 5
+-- (3, 1, 'Yellow', 1, 15.00),     -- Cart ID 3, Product ID 1
+-- (4, 2, 'Purple', 2, 45.00),     -- Cart ID 4, Product ID 2
+-- (4, 3, 'Orange', 1, 25.00),     -- Cart ID 4, Product ID 3
+-- (5, 4, 'White', 2, 80.00),      -- Cart ID 5, Product ID 4
+-- (5, 5, 'Brown', 1, 22.50),       -- Cart ID 5, Product ID 5
+-- (6, 1, 'Grey', 1, 15.00),       -- Cart ID 6, Product ID 1
+-- (6, 2, 'Red', 2, 40.00),        -- Cart ID 6, Product ID 2
+-- (7, 3, 'Blue', 3, 60.00),       -- Cart ID 7, Product ID 3
+-- (7, 4, 'Black', 1, 30.00),      -- Cart ID 7, Product ID 4
+-- (8, 5, 'Pink', 2, 50.00),       -- Cart ID 8, Product ID 5
+-- (8, 1, 'Yellow', 1, 15.00),     -- Cart ID 8, Product ID 1
+-- (9, 2, 'Purple', 2, 45.00),     -- Cart ID 9, Product ID 2
+-- (9, 3, 'Orange', 1, 25.00),     -- Cart ID 9, Product ID 3
+-- (10, 4, 'White', 2, 80.00),     -- Cart ID 10, Product ID 4
+-- (10, 5, 'Brown', 1, 22.50),      -- Cart ID 10, Product ID 5
+-- (11, 1, 'Grey', 1, 15.00),      -- Cart ID 11, Product ID 1
+-- (11, 2, 'Red', 2, 40.00),       -- Cart ID 11, Product ID 2
+-- (12, 3, 'Blue', 3, 60.00),      -- Cart ID 12, Product ID 3
+-- (12, 4, 'Black', 1, 30.00),     -- Cart ID 12, Product ID 4
+-- (13, 5, 'Pink', 2, 50.00),      -- Cart ID 13, Product ID 5
+-- (13, 1, 'Yellow', 1, 15.00),    -- Cart ID 13, Product ID 1
+-- (14, 2, 'Purple', 2, 45.00),    -- Cart ID 14, Product ID 2
+-- (14, 3, 'Orange', 1, 25.00),    -- Cart ID 14, Product ID 3
+-- (15, 4, 'White', 2, 80.00),     -- Cart ID 15, Product ID 4
+-- (15, 5, 'Brown', 1, 22.50),      -- Cart ID 15, Product ID 5
+-- (16, 1, 'Red', 2, 40.00),        -- Cart ID 16, Product ID 1
+-- (17, 2, 'Blue', 1, 20.00),       -- Cart ID 17, Product ID 2
+-- (18, 3, 'Green', 3, 60.00),      -- Cart ID 18, Product ID 3
+-- (19, 4, 'Black', 1, 30.00),      -- Cart ID 19, Product ID 4
+-- (20, 5, 'Pink', 2, 50.00),       -- Cart ID 20, Product ID 5
+-- (21, 1, 'Yellow', 1, 15.00),     -- Cart ID 21, Product ID 1
+-- (22, 2, 'Purple', 2, 45.00),     -- Cart ID 22, Product ID 2
+-- (23, 3, 'Orange', 1, 25.00),     -- Cart ID 23, Product ID 3
+-- (24, 4, 'White', 2, 80.00),      -- Cart ID 24, Product ID 4
+-- (25, 5, 'Brown', 1, 22.50),      -- Cart ID 25, Product ID 5
+-- (26, 1, 'Grey', 1, 15.00),      -- Cart ID 26, Product ID 1
+-- (27, 2, 'Red', 2, 40.00),       -- Cart ID 27, Product ID 2
+-- (28, 3, 'Blue', 3, 60.00),      -- Cart ID 28, Product ID 3
+-- (29, 4, 'Black', 1, 30.00),      -- Cart ID 29, Product ID 4
+-- (30, 5, 'Pink', 2, 50.00),       -- Cart ID 30, Product ID 5
+-- (31, 1, 'Yellow', 1, 15.00),     -- Cart ID 31, Product ID 1
+-- (32, 2, 'Purple', 2, 45.00),     -- Cart ID 32, Product ID 2
+-- (33, 3, 'Orange', 1, 25.00),     -- Cart ID 33, Product ID 3
+-- (34, 4, 'White', 2, 80.00),      -- Cart ID 34, Product ID 4
+-- (35, 5, 'Brown', 1, 22.50),      -- Cart ID 35, Product ID 5
+-- (36, 1, 'Red', 2, 40.00),        -- Cart ID 36, Product ID 1
+-- (37, 2, 'Blue', 1, 20.00),       -- Cart ID 37, Product ID 2
+-- (38, 3, 'Green', 3, 60.00),      -- Cart ID 38, Product ID 3
+-- (39, 4, 'Black', 1, 30.00),      -- Cart ID 39, Product ID 4
+-- (40, 5, 'Pink', 2, 50.00),       -- Cart ID 40, Product ID 5
+-- (41, 1, 'Yellow', 1, 15.00),     -- Cart ID 41, Product ID 1
+-- (42, 2, 'Purple', 2, 45.00),     -- Cart ID 42, Product ID 2
+-- (43, 3, 'Orange', 1, 25.00),     -- Cart ID 43, Product ID 3
+-- (44, 4, 'White', 2, 80.00),      -- Cart ID 44, Product ID 4
+-- (45, 5, 'Brown', 1, 22.50),      -- Cart ID 45, Product ID 5
+-- (46, 1, 'Grey', 1, 15.00),      -- Cart ID 46, Product ID 1
+-- (47, 2, 'Red', 2, 40.00),       -- Cart ID 47, Product ID 2
+-- (48, 3, 'Blue', 3, 60.00),      -- Cart ID 48, Product ID 3
+-- (49, 4, 'Black', 1, 30.00),      -- Cart ID 49, Product ID 4
+-- (50, 5, 'Pink', 2, 50.00);       -- Cart ID 50, Product ID 5
+
+DELETE FROM Cart_Items
+WHERE Cart_Item_ID IN (
+    SELECT Cart_Item_ID FROM Cart_Items
+    ORDER BY Cart_Item_ID DESC
+    LIMIT 17
+);
