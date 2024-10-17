@@ -100,41 +100,100 @@ def create_user():
 # jaimen work 
 
 
-5. Place order for user id (POST `/order/<int:user_id>`)
-@app.route('/order/<int:user_id>', methods=['POST'])
-def order(user_id):
+# 5. Place order for user id (POST `/order/<int:user_id>`)
+# @app.route('/order/<int:user_id>', methods=['POST'])
+# def order(user_id):
 
 
 # # 7. Add to Cart (POST `/cart/<int:user_id>/add`)
-# @app.route('/cart/<int:user_id>/add', methods=['POST'])
-# def add_to_cart(user_id):
-#     data = request.get_json()
-#     product_id = data.get('product_id')
-#     selected_colours = data.get('selected_colours')
-#     quantity = data.get('quantity')
 
-#     if not product_id or not quantity:
-#         return {"error": "Missing product_id or quantity"}, 400
+@app.route('/cart/<int:user_id>/add', methods=['POST'])
+def add_to_cart(user_id):
+    data = request.get_json()
+    product_id = data.get('product_id')
+    selected_colours = data.get('selected_colours')
+    quantity = data.get('quantity')
 
-#     # Fetch the cart for the user or create a new one if not exists
-#     cart_query = f"SELECT * FROM Cart WHERE Customer_ID = {user_id}"
-#     cart = execute_query(cart_query)
+    if not product_id or not quantity:
+        return jsonify({"error": "Missing product_id or quantity"}), 400
 
-#     if not cart:
-#         # Create new cart
-#         new_cart_query = f"INSERT INTO Cart (Customer_ID, Total_Amount, Status) VALUES ({user_id}, 0, 'pending')"
-#         execute_query(new_cart_query)
-#         cart = execute_query(cart_query)
+    # Fetch or create a cart for the user
+    cart_query = f"SELECT * FROM Cart WHERE Customer_ID = {user_id}"
+    cart = execute_query(cart_query)
 
-#     cart_id = cart[0]["Cart_ID"]
-#     insert_query = f"""
-#         INSERT INTO Cart_Items (Cart_ID, Product_ID, Selected_Colours, Quantity, Subtotal)
-#         VALUES ({cart_id}, {product_id}, '{selected_colours}', {quantity}, 0)
-#     """
-#     execute_query(insert_query)
-    
-#     return "Item added to cart", 201
+    if not cart:
+        new_cart_query = f"INSERT INTO Cart (Customer_ID, Total_Amount, Status) VALUES ({user_id}, 0, 'pending')"
+        execute_query(new_cart_query)
+        cart = execute_query(cart_query)
 
+    cart_id = cart[0]["Cart_ID"]
+
+    # Fetch product price
+    price_query = f"SELECT Price FROM Product WHERE Product_ID = {product_id}"
+    product_price = execute_query(price_query)[0]["Price"]
+
+    subtotal = product_price * quantity
+
+    # Insert into Cart_Items
+    insert_query = f"""
+        INSERT INTO Cart_Items (Cart_ID, Product_ID, Selected_Colours, Quantity, Subtotal)
+        VALUES ({cart_id}, {product_id}, '{selected_colours}', {quantity}, {subtotal})
+    """
+    execute_query(insert_query)
+
+    # Update Cart total
+    total_update_query = f"UPDATE Cart SET Total_Amount = Total_Amount + {subtotal} WHERE Cart_ID = {cart_id}"
+    execute_query(total_update_query)
+
+    return jsonify({"message": "Item added to cart"}), 201
+
+# Example usage:
+# add_to_cart(1, 101, 'Red', 2) # This would add 2 quantities of Product_ID 101 to Cart_ID 1.
+
+
+@app.route('/cart/<int:user_id>/place', methods=['PUT'])
+def place_order(user_id):
+
+# 
+    cart_query = f"SELECT * FROM Cart WHERE Customer_ID = {user_id}"
+    cart = execute_query(cart_query)
+
+    if not cart:
+        return jsonify({"error": "No active cart found for this user"}), 404
+
+    cart_id = cart[0]["Cart_ID"]
+
+    # Fetch the total amount and cart items
+    cart_items_query = f"SELECT * FROM Cart_Items WHERE Cart_ID = {cart_id}"
+    cart_items = execute_query(cart_items_query)
+
+    if not cart_items:
+        return jsonify({"error": "No items in the cart"}), 400
+
+    total_amount = cart[0]["Total_Amount"]
+
+    # Check if there is a payment method and shipping address provided in the request
+    data = request.get_json()
+    payment_method = data.get('payment_method')
+    shipping_address = data.get('shipping_address')
+    pincode = data.get('pincode')
+
+    if not payment_method or not shipping_address or not pincode:
+        return jsonify({"error": "Missing payment method, shipping address, or pincode"}), 400
+
+    # Update the cart with payment method, shipping address, and mark as ordered
+    update_cart_query = f"""
+        UPDATE Cart
+        SET Payment_Method = '{payment_method}', Shipping_Address = '{shipping_address}', Pincode = {pincode}, Status = 'ordered'
+        WHERE Cart_ID = {cart_id}
+    """
+    execute_query(update_cart_query)
+
+    # Insert order details into the Order table (if you have one)
+    # order_insert_query = f"INSERT INTO Order (Cart_ID, Order_Date, Status) VALUES ({cart_id}, CURRENT_TIMESTAMP, 'ordered')"
+    # execute_query(order_insert_query)
+
+    return jsonify({"message": "Order placed successfully", "total_amount": total_amount}), 201
 
 # 8. Homepage (GET `/`)
 @app.route('/', methods=['GET'])
